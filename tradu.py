@@ -1,33 +1,34 @@
+
 import os
+import xml.etree.ElementTree as ET
+import codecs
 
-def ler_txt(arquivo):
-    with open(arquivo, 'r', encoding='utf-8') as file:
-        linhas = file.readlines()
-    return linhas
+xml_file_path = 'tradu.xml'
 
-def verificar_e_criar_txt(txt_linhas, pasta_arquivos):
-    frases_nao_encontradas = []
+tree = ET.parse(xml_file_path)
+root = tree.getroot()
 
-    for linha in txt_linhas:
-        codigo = linha.split('*')[1].strip()
-        nome_arquivo = f"{codigo}.wem"
+base_directory = 'E:\Área de Trabalho\Projeto Dublagem Starfield\legpt'
 
-        if not os.path.exists(os.path.join(pasta_arquivos, nome_arquivo)):
-            frases_nao_encontradas.append(linha)
 
-    if frases_nao_encontradas:
-        with open('frases_nao_encontradas.txt', 'w', encoding='utf-8') as file:
-            file.writelines(frases_nao_encontradas)
-        print("Arquivo 'frases_nao_encontradas.txt' criado com sucesso.")
-    else:
-        print("Todos os códigos foram encontrados nos arquivos.")
+for string_element in root.iter('String'):
+    fuz_elements = string_element.findall('FuzInfo/Fuz')
+    if fuz_elements is not None:
+        for fuz_element in fuz_elements:
+            fuz_text = fuz_element.text
+            folder_name = fuz_text.split('\\')[-2]
+            code = fuz_text.split('\\')[-1].split('.')[0]
 
-if __name__ == "__main__":
-    pasta_arquivos = "XXX"
-    arquivo_txt = "emprod.txt"
 
-    if os.path.exists(pasta_arquivos) and os.path.exists(arquivo_txt):
-        linhas_txt = ler_txt(arquivo_txt)
-        verificar_e_criar_txt(linhas_txt, pasta_arquivos)
-    else:
-        print("Certifique-se de fornecer caminhos válidos para a pasta de arquivos e o arquivo txt.")
+            dest_text_pt = string_element.find('Dest').text
+
+            directory_path = os.path.join(base_directory, folder_name)
+            if not os.path.exists(directory_path):
+                os.makedirs(directory_path)
+
+
+            txt_file_path = os.path.join(directory_path, f'{folder_name}.txt')
+            with codecs.open(txt_file_path, 'a', encoding='utf-8') as txt_file:
+                txt_file.write(f'{dest_text_pt} * {code}.wem\n')
+
+print('Concluído!')
