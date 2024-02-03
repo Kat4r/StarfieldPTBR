@@ -17,7 +17,7 @@ def listar_nomes_pastas(diretorio, arquivo_saida):
 
 
 # Substitua o caminho do diretório pela pasta que você deseja listar
-diretorio_a_listar = 'C:/Users/vini_/OneDrive/Documentos/My Games/Starfield/Data/Sound/voice/starfield.esm'
+diretorio_a_listar = 'XXX'
 arquivo_saida = 'nomes_pastas.txt'
 
 listar_nomes_pastas(diretorio_a_listar, arquivo_saida)

@@ -10,7 +10,7 @@ tree = ET.parse(xml_file_path)
 root = tree.getroot()
 
 # Diretório base onde todas as pastas devem estar
-base_directory = 'E:\\Área de Trabalho\\Projeto Dublagem Starfield\\Legendasold'
+base_directory = 'XXX'
 
 # Dicionário para mapear cada personagem com suas pastas
 character_folders = {}

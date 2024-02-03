@@ -23,7 +23,7 @@ def verificar_e_criar_txt(txt_linhas, pasta_arquivos):
         print("Todos os códigos foram encontrados nos arquivos.")
 
 if __name__ == "__main__":
-    pasta_arquivos = "C:/Users/vini_/OneDrive/Documentos/My Games/Starfield/Data/Sound/voice/starfield.esm/npcfsarahmorgan"
+    pasta_arquivos = "XXX"
     arquivo_txt = "emprod.txt"
 
     if os.path.exists(pasta_arquivos) and os.path.exists(arquivo_txt):

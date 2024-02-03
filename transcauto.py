@@ -21,6 +21,6 @@ def transcAuto(pathPasta,nomeArq):
             print(f"linha escrita, restam {i}")
             #só colocar um # na frente de qual você escolher pra traduzir
 
-caminho = 'E:\Área de Trabalho\Projeto Dublagem Starfield\Em ingles/npcfanyagriffon'.replace("\\","/")
+caminho = 'XXX'.replace("\\","/")
 
 transcAuto(caminho, os.path.basename(os.path.normpath(caminho)) + ".txt")

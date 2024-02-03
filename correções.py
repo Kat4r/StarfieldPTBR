@@ -1,7 +1,7 @@
 # Caminhos para os arquivos
-correto_txt_path = 'npcfsarahmorgan.txt'
-incorreto_txt_path = 'npcfsarahmorganold.txt'
-diferenca_txt_path = 'correcoes.txt'
+correto_txt_path = 'XXX.txt'
+incorreto_txt_path = 'XXX.txt'
+diferenca_txt_path = 'XXX.txt'
 
 import codecs
 # Lê as linhas dos arquivos

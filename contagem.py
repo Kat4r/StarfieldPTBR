@@ -15,7 +15,7 @@ def contar_arquivos_por_pasta(diretorio):
     return contagem_por_pasta
 
 
-caminho_diretorio = r'E:\Área de Trabalho\Projeto Dublagem Starfield\Audios\sound\voice\starfield.esm'
+caminho_diretorio = r'XXX'
 
 # Obtém a contagem de arquivos por pasta
 contagem_arquivos = contar_arquivos_por_pasta(caminho_diretorio)

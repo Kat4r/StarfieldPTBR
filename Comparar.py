@@ -1,9 +1,9 @@
 import os
 import shutil
 
-diretorio_dublados = "E:\Área de Trabalho\Projeto Dublagem Starfield\Dublados/npcmwalterstroud"
-diretorio_faltando = "E:\Área de Trabalho\Projeto Dublagem Starfield\Em ingles/npcmwalterstroud"
-diretorio_destino = "E:/Área de Trabalho/Projeto Dublagem Starfield/Falta"
+diretorio_dublados = "XXX"
+diretorio_faltando = "XXX"
+diretorio_destino = "XXX"
 
 
 arquivos_dublados = set(os.listdir(diretorio_dublados))
