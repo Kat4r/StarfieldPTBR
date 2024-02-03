@@ -3,8 +3,8 @@ import requests
 from gtts import gTTS
 i = 0
 
-API_KEY = "c55edda17d3864e12cd14f4b79092922"
-URL = "https://api.elevenlabs.io/v1/text-to-speech/U6u27Ew1JMJya3Atjn7p"
+API_KEY = "SUA API"
+URL = "https://api.elevenlabs.io/v1/text-to-speech/VOZ"
 diretorio_textos = "D:/Meus Códigos/Dataframe Manipulation/Starfield/textos"
 
 def get_eleven_tts(text):
