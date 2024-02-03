@@ -4,13 +4,13 @@
 ### Programas Utilizados
 
 **Programas de Terceiros:**
-- [ww2ogg](link_para_o_programa)
-- [BAE Extractor](link_para_o_programa)
-- [BA2V3 Updater](link_para_o_programa)
-- [Revorb](link_para_o_programa)
-- [PowerRename](link_para_o_programa)
-- [WWise](link_para_o_programa)
-- [FlicFlacs](link_para_o_programa)
+- [ww2ogg](https://drive.google.com/file/d/1yUJq-zAb5GbR91Ea6xqaCj49CpwzujzG/view)
+- [BAE Extractor](https://www.nexusmods.com/starfield/mods/165)
+- [BA2V3 Updater](https://www.nexusmods.com/starfield/mods/5099)
+- [Revorb](https://drive.google.com/file/d/1yUJq-zAb5GbR91Ea6xqaCj49CpwzujzG/view)
+- [PowerRename](https://learn.microsoft.com/pt-br/windows/powertoys/powerrename)
+- [WWise](https://www.audiokinetic.com/en/products/wwise/)
+- [FlicFlacs](https://sector-seven.com/software/flicflac)
 
 **Python311:**
 - `Torch`
