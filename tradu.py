@@ -1,4 +1,4 @@
-
+#puxar as traduções diretas dos arquivos de string é bem melhor do que transcrição
 import os
 import xml.etree.ElementTree as ET
 import codecs
@@ -8,7 +8,7 @@ xml_file_path = 'tradu.xml'
 tree = ET.parse(xml_file_path)
 root = tree.getroot()
 
-base_directory = 'E:\Área de Trabalho\Projeto Dublagem Starfield\legpt'
+base_directory = 'E:\Área de Trabalho\Projeto Dublagem Starfield\legendas'
 
 
 for string_element in root.iter('String'):
