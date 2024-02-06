@@ -3,10 +3,8 @@ import os
 
 def listar_nomes_pastas(diretorio, arquivo_saida):
     try:
-        # Obtém a lista de nomes de pastas no diretório
         nomes_pastas = [nome for nome in os.listdir(diretorio) if os.path.isdir(os.path.join(diretorio, nome))]
 
-        # Grava os nomes das pastas em um arquivo de texto
         with open(arquivo_saida, 'w', encoding='utf-8') as file:
             file.writelines('\n'.join(nomes_pastas))
 
