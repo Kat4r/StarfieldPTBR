@@ -1,5 +1,6 @@
 # Dublagem Stafield PTBR usando inteligência artificial.
 
+O resultado disso pode ser encontrado [AQUI](https://www.nexusmods.com/starfield/mods/8192)
 
 ### Programas Utilizados
 
