@@ -13,7 +13,10 @@ def contar_linhas_txts(diretorio):
                 linhas = contar_linhas_arquivo(caminho_arquivo)
                 print(f"O arquivo {arquivo} tem {linhas} linhas.")
                 total_linhas += linhas
+                with open('qtd_audio.txt', 'a', encoding='utf-8') as arq:
+                    arq.write(f"{arquivo}   {linhas}\n")
     print(f"\nO total de linhas em todos os arquivos TXT é: {total_linhas}")
 
-diretorio = "E:\Área de Trabalho\Projeto Dublagem Starfield\legendas"
+
+diretorio = "D:\Area de Trabalho\Projeto Dublagem Starfield\legendas"
 contar_linhas_txts(diretorio)
