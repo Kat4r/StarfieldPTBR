@@ -1,9 +1,9 @@
 import os
 import shutil
 
-diretorio_dublados = "XXX"
-diretorio_faltando = "XXX"
-diretorio_destino = "XXX"
+diretorio_dublados = "H:\SteamLibrary\steamapps\common\Portal\portal\sound\\vo\\aperture_ai"
+diretorio_faltando = "E:\Area de Trabalho\projeto dub glados\Glados"
+diretorio_destino = "E:\Meus Códigos\Dub Starfield\Textos"
 
 
 arquivos_dublados = set(os.listdir(diretorio_dublados))
