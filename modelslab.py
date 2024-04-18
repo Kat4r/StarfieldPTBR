@@ -69,10 +69,21 @@ for arquivo in os.listdir(diretorio_textos):
                 codigo_arquivo = partes[1].strip().replace(".wem", "")
                 voz = gerar_link(f"E:\Area de Trabalho\Projeto Dublagem Starfield\em produção\\neonsecurityfemale01\\{codigo_arquivo}.wav")
                 voz = voz.replace(".org/", ".org/dl/")
-                audio_data = get_modelslab_tts(texto, voz=voz)
-                audio_dict = eval(audio_data)
-                audio_url = audio_dict['output'][0]
-                audio_url = audio_url.replace("\\",'')
+
+                while True:
+
+                    audio_data = get_modelslab_tts(texto, voz=voz)
+
+                    try:
+                        if audio_data:
+                            audio_dict = eval(audio_data)
+                            audio_url = audio_dict['output'][0]
+                            audio_url = audio_url.replace("\\",'')
+                            break
+
+                    except Exception as erro:
+                        print(erro)
+                        continue
 
                 caminho_audio = f"E:\Area de Trabalho\Projeto Dublagem Starfield\Dublados\WEM\\neonsecurityfemale01/{codigo_arquivo}.wav"
 
@@ -91,5 +102,3 @@ for arquivo in os.listdir(diretorio_textos):
                         print(f"Erro ao realizar o arquivo: {response.status_code}")
                         sleep(2)
                         continue
-
-
