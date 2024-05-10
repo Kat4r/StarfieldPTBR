@@ -1,13 +1,12 @@
-#Onde a dublagem acontece
-
+import winsound
 import os
 import requests
 from gtts import gTTS
 i = 0
 
-API_KEY = "119c1ba95e120c491c1ba3cb08fbf747"
-URL = "https://api.elevenlabs.io/v1/text-to-speech/n7k4ucAvjQ3hsiXOF449"
-diretorio_textos = "E:\Meus Códigos\Dub Starfield\Textos"
+API_KEY = "52fe00d45629c38a3a0746f5b9504a62"
+URL = "https://api.elevenlabs.io/v1/text-to-speech/hBBJZOxdHP6FCBo70bnF"
+diretorio_textos = "D:\Meus Códigos\Dub Starfield\Textos"
 
 def get_eleven_tts(text):
     headers = {
@@ -33,6 +32,7 @@ def get_eleven_tts(text):
     else:
         print(f"Erro na solicitação TTS: {response.text}")
         print(f"Foram dublados {i} audios")
+        winsound.Beep(1000, 300)
         exit()
 
 for arquivo in os.listdir(diretorio_textos):
@@ -53,7 +53,7 @@ for arquivo in os.listdir(diretorio_textos):
 
                 if audio_data:
                     i += 1
-                    caminho_audio = f"E:\Area de Trabalho\Projeto Dublagem Starfield\Dublados\WEM\\npcfhadrian/{codigo_arquivo}.mp3"
+                    caminho_audio = f"D:\Area de Trabalho\Projeto Dublagem Starfield\Dublados\WEM\\npcmfelixsadler/{codigo_arquivo}.mp3"
                     with open(caminho_audio, "wb") as audio_file:
                         audio_file.write(audio_data)
 
