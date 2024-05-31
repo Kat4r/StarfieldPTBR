@@ -2,18 +2,19 @@ import os
 import torch
 from TTS.api import TTS
 from time import sleep
+import logging
 
-# Configuração do dispositivo
 device = "cuda" if torch.cuda.is_available() else "cpu"
 
-# Inicializa o modelo TTS
+logging.basicConfig(level=logging.ERROR)
+
 tts = TTS("tts_models/multilingual/multi-dataset/xtts_v2")
 tts.to(device)
 
 # Diretórios de entrada e saída
 diretorio_textos = "D:\\Meus Códigos\\Dub Starfield\\Textos"
-diretorio_saidas = "D:\\Area de Trabalho\\Projeto Dublagem Starfield\\Dublados\\WEM\\genericmale02\\"
-diretorio_audios_producao = "D:\\Area de Trabalho\\Projeto Dublagem Starfield\\em produção\\genericos\\genericmale02\\"
+diretorio_saidas = "D:\\Area de Trabalho\\Projeto Dublagem Starfield\\Dublados\\WEM\\genericcrowdmale02\\"
+diretorio_audios_producao = "D:\\Area de Trabalho\\Projeto Dublagem Starfield\\em produção\\genericcrowdmale02\\"
 
 def verificar_arquivo(caminho):
     if os.path.isfile(caminho):
@@ -21,6 +22,9 @@ def verificar_arquivo(caminho):
     else:
         print(f"Arquivo não encontrado: {caminho}")
         return False
+
+# Cria o diretório de saída se não existir
+os.makedirs(diretorio_saidas, exist_ok=True)
 
 # Processa os arquivos de texto
 i = 0
@@ -32,17 +36,22 @@ for arquivo in os.listdir(diretorio_textos):
             linhas = file.readlines()
 
         for linha in linhas:
+            # Verifica se a linha contém mais de um asterisco ou contém 'None'
+            if linha.count('*') != 1 or 'None' in linha:
+                print(f"{linha.strip()}: ignorada.")
+                continue
+
+        for linha in linhas:
             partes = linha.split("*")
 
             if len(partes) >= 2:
                 texto = partes[0].strip().replace('.', ',')
                 codigo_arquivo = partes[1].strip().replace(".wem", "")
-                caminho_voz = f"{diretorio_audios_producao}{codigo_arquivo}.wav"
+                caminho_voz = f"{diretorio_audios_producao}{codigo_arquivo}.ogg"
 
                 if verificar_arquivo(caminho_voz):
                     while True:
                         try:
-                            # Gera e salva a síntese de voz usando o Coqui TTS
                             caminho_audio = f"{diretorio_saidas}{codigo_arquivo}.wav"
                             tts.tts_to_file(text=texto, speaker_wav=caminho_voz, language="pt", file_path=caminho_audio, emotion='neutral')
                             i += 1
@@ -50,5 +59,6 @@ for arquivo in os.listdir(diretorio_textos):
                             break
                         except Exception as erro:
                             print(f"Erro ao gerar áudio: {erro}")
-                            sleep(2)
-                            continue
+                            break
+
+print('Processamento concluído.')
