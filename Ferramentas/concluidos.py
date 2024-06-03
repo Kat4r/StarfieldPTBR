@@ -1,23 +1,24 @@
 import os
+import shutil
 
+# Definindo os caminhos das pastas
+pasta_final = r'C:\Users\vini_\OneDrive\Documentos\My Games\Starfield\Data\Sound\voice\starfield.esm'
+pasta_legendas = r'D:\Area de Trabalho\Projeto Dublagem Starfield\legendas'
+pasta_restantes = r'D:\Area de Trabalho\Projeto Dublagem Starfield\legendas_restantes'
 
-def listar_nomes_pastas(diretorio, arquivo_saida):
-    try:
-        nomes_pastas = [nome for nome in os.listdir(diretorio) if os.path.isdir(os.path.join(diretorio, nome))]
+# Criar a pasta para os arquivos restantes se não existir
+os.makedirs(pasta_restantes, exist_ok=True)
 
-        with open(arquivo_saida, 'w', encoding='utf-8') as file:
-            file.writelines('\n'.join(nomes_pastas))
+# Obter a lista de arquivos na pasta final e na pasta de legendas
+arquivos_final = set(os.listdir(pasta_final))
+arquivos_legendas = os.listdir(pasta_legendas)
 
-        print(f'Nomes das pastas foram gravados em {arquivo_saida}')
+# Mover arquivos que não estão na pasta final para a pasta restantes
+for arquivo in arquivos_legendas:
+    if arquivo not in arquivos_final:
+        src_path = os.path.join(pasta_legendas, arquivo)
+        dst_path = os.path.join(pasta_restantes, arquivo)
+        shutil.move(src_path, dst_path)
+        print(f'Movido: {arquivo}')
 
-    except Exception as e:
-        print(f'Ocorreu um erro: {e}')
-
-
-# Substitua o caminho do diretório pela pasta que você deseja listar
-diretorio_a_listar = 'C:\\Users\\vini_\\OneDrive\\Documentos\\My Games\\Starfield\\Data\\Sound\\voice\\starfield.esm'
-# diretorio_a_listar = "E:\\Area de Trabalho\\projeto dub glados\\balbuço" # Portal
-
-arquivo_saida = 'nomes_pastas.txt'
-
-listar_nomes_pastas(diretorio_a_listar, arquivo_saida)
+print('Movimentação de arquivos concluída.')

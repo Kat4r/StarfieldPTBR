@@ -3,12 +3,12 @@ import os
 import xml.etree.ElementTree as ET
 import codecs
 
-xml_file_path = 'tradu.xml'
+xml_file_path = '../tradu.xml'
 
 tree = ET.parse(xml_file_path)
 root = tree.getroot()
 
-base_directory = 'E:\Área de Trabalho\Projeto Dublagem Starfield\legendas'
+base_directory = 'D:\Área de Trabalho\Projeto Dublagem Starfield\legendas'
 
 
 for string_element in root.iter('String'):

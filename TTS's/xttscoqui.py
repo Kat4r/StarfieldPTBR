@@ -13,8 +13,8 @@ tts.to(device)
 
 # Diretórios de entrada e saída
 diretorio_textos = "D:\\Meus Códigos\\Dub Starfield\\Textos"
-diretorio_saidas = "D:\\Area de Trabalho\\Projeto Dublagem Starfield\\Dublados\\WEM\\genericcrowdmale02\\"
-diretorio_audios_producao = "D:\\Area de Trabalho\\Projeto Dublagem Starfield\\em produção\\genericcrowdmale02\\"
+diretorio_saidas = "D:\\Area de Trabalho\\Projeto Dublagem Starfield\\Dublados\\WEM\\crimsonfleetfemale02\\"
+diretorio_audios_producao = "D:\\Area de Trabalho\\Projeto Dublagem Starfield\\em produção\\crimsonfleetfemale02\\"
 
 def verificar_arquivo(caminho):
     if os.path.isfile(caminho):
